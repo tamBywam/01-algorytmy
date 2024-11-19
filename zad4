@@ -1,0 +1,42 @@
+cases = [
+    {'rok':'2075', 'miesiac':'03', 'dzien':'22'}, {'rok':'2032', 'miesiac':'11', 'dzien':'01'}, 
+    {'rok':'1987', 'miesiac':'06', 'dzien':'05'}, {'rok':'2003', 'miesiac':'09', 'dzien':'14'}, 
+    {'rok':'1956', 'miesiac':'12', 'dzien':'28'}, {'rok':'2001', 'miesiac':'02', 'dzien':'10'},
+    {'rok':'1995', 'miesiac':'08', 'dzien':'17'}, {'rok':'2010', 'miesiac':'04', 'dzien':'30'},
+    {'rok':'1980', 'miesiac':'07', 'dzien':'23'}, {'rok':'2022', 'miesiac':'01', 'dzien':'09'},
+    {'rok':'1978', 'miesiac':'05', 'dzien':'19'}, {'rok':'1989', 'miesiac':'10', 'dzien':'08'},
+    {'rok':'2005', 'miesiac':'03', 'dzien':'11'}, {'rok':'1967', 'miesiac':'11', 'dzien':'25'},
+    {'rok':'2015', 'miesiac':'06', 'dzien':'02'}, {'rok':'1990', 'miesiac':'09', 'dzien':'20'},
+    {'rok':'1983', 'miesiac':'12', 'dzien':'13'}, {'rok':'1975', 'miesiac':'02', 'dzien':'06'},
+    {'rok':'1958', 'miesiac':'08', 'dzien':'14'}, {'rok':'1998', 'miesiac':'04', 'dzien':'27'}
+]
+
+for case in cases:
+    case['data'] = int(case['rok'] + case['miesiac'] + case['dzien'])
+    
+n=len(cases)
+for i in range(n - 1):
+    for j in range(0, n - i - 1):
+        if cases[j]['data'] > cases[j + 1]['data']:
+            cases[j], cases[j + 1] = cases[j + 1], cases[j]
+
+for i, case in enumerate(cases, start=1):
+    print(f"{i}. {case['rok']}-{case['miesiac']}-{case['dzien']}")
+
+#cases = [
+#    ['2075-03-22', '2032-11-01', '1987-06-05', '2003-09-14', '1956-12-28'],
+#    ['2028-07-18', '2045-02-03', '1978-04-20', '2090-10-29', '1915-08-11', '2066-01-09', '1990-10-17', '1951-07-03', '2088-12-15', '2039-05-26'],
+#    ['2024-09-05', '2032-11-21', '1987-03-14', '2050-06-28', '1972-12-09', '2099-04-17', '2010-08-23', '1945-02-10', '2063-10-31', '1928-07-06', '2019-01-15', '1976-05-20', '2041-11-02', '2000-09-18', '1956-03-07', '2077-08-12', '1989-12-25', '1995-06-03', '1940-04-28', '2085-10-09']
+#]
+#
+#for case in cases:
+#    n = len(case)
+#    for i in range(n - 1):
+#        for j in range(0, n - i - 1):
+#            if int(case[j].replace('-', '')) > int(case[j + 1].replace('-', '')):
+#                case[j], case[j + 1] = case[j + 1], case[j]
+#
+#for i, case in enumerate(cases, start=1):
+#    print(f"Wypadek {i}:")
+#    for date in case:
+#        print(date)

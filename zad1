@@ -1,0 +1,31 @@
+def is_prime(number):
+    if number <= 1:
+        return False
+    for i in range(2, int(number**0.5) + 1):
+        if number % i == 0:
+            return False
+    return True
+
+cases = ((100, 150), (350, 400), (1900, 2000), (9900, 10000))
+
+for case in cases:
+    x, y = case
+    print(f"Przypadek: {x}-{y}")
+    for num in range(x, y):
+       if num >= 1:
+           for i in range(2, num-1):
+               if (num % i) == 0:
+                   break
+           else:
+               print(f"{num}: {is_prime(num)}")
+
+#x=int(input ("Podaj dolny zakres: "))
+#y=int(input ("Podaj gorny zakres: "))
+
+#for num in range(x, y + 1):
+#   if num >= 1:
+#       for i in range(2, num):
+#           if (num % i) == 0:
+#               break
+#       else:
+#           print(num)

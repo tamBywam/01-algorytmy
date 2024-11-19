@@ -1,0 +1,15 @@
+def josephus(n, k):
+    if n == 1:
+        return 0
+    else:
+        return (josephus(n - 1, k) + k) % n
+k=2
+
+cases = ((8), (12), (71), (115), (133), (169), (171), (184), (193), (228), (242), (274), (297), (317), (324), (375), (424), (430), (438), (507), (565), (599), (655), (665), (743), (753), (804), (818), (828), (876))
+
+for case in cases:
+    pot=1
+    while pot <= case:
+        pot*=2
+    pot=pot//2
+    print(case, ":", ((case-pot)*2)+1, ":",(josephus(case, k)+1))
